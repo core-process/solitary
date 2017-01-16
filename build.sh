@@ -31,14 +31,15 @@ done
 
 if [ "$ENABLE_PUBLISH" = true ]; then
   ENABLE_PUBLISH_VERSION=$(npm version "$ENABLE_PUBLISH_BUMP")
-  git commit -a -m "Bump to version $ENABLE_PUBLISH_VERSION"
 fi
 
 if [ "$ENABLE_REBUILD" = true ]; then
   rm -r -f node_modules build
   npm install
 fi
+
 npm run build
+
 if [ "$ENABLE_PUBLISH" = true ]; then
   npm publish
 fi

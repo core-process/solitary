@@ -9,16 +9,16 @@ export default function solitary(privImpl) {
     if(!privMap.has(pubObj)) {
 
       // get property names
-      const properties = Object.getOwnPropertyNames(pubObj);
+      const properties = Object.getOwnPropertyNames(privImpl);
       if(Object.getOwnPropertySymbols) {
-        properties.push(...Object.getOwnPropertySymbols(pubObj));
+        properties.push(...Object.getOwnPropertySymbols(privImpl));
       }
 
       // get property descriptors
       const descriptors = properties.reduce(
-        (result, descriptor) => {
-          result[descriptor] = Object.getOwnPropertyDescriptor(pubObj, descriptor);
-          return result;
+        (res, descr) => {
+          res[descr] = Object.getOwnPropertyDescriptor(privImpl, descr);
+          return res;
         },
         { }
       );
@@ -32,7 +32,7 @@ export default function solitary(privImpl) {
           privObj,
           property,
           descriptors[property]
-        )
+        );
       }
 
       // store privObj

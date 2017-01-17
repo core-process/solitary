@@ -1,46 +1,33 @@
 
-export default function solitary(privImpl) {
+export default function solitary(privClass) {
 
+  // stores
   const privMap = new WeakMap();
+  const pubMap = new WeakMap();
 
-  return function internal(pubObj) {
+  return {
+    priv: (pubObj) => {
+      // check if we have privObj in map already
+      if(!privMap.has(pubObj)) {
+        // create privObj from privClass
+        const privObj = new privClass(pubObj);
 
-    // check if we have privObj in map already
-    if(!privMap.has(pubObj)) {
-
-      // get property names
-      const properties = Object.getOwnPropertyNames(privImpl);
-      if(Object.getOwnPropertySymbols) {
-        properties.push(...Object.getOwnPropertySymbols(privImpl));
+        // update maps
+        privMap.set(pubObj, privObj);
+        pubMap.set(privObj, pubObj);
       }
 
-      // get property descriptors
-      const descriptors = properties.reduce(
-        (res, descr) => {
-          res[descr] = Object.getOwnPropertyDescriptor(privImpl, descr);
-          return res;
-        },
-        { }
-      );
-
-      // create privObj with pubObj as prototype
-      const privObj = Object.create(pubObj);
-
-      // apply properties to privObj
-      for(let property of properties) {
-        Object.defineProperty(
-          privObj,
-          property,
-          descriptors[property]
-        );
+      // get privObj from map
+      return privMap.get(pubObj);
+    },
+    pub: (privObj) => {
+      // bail out if there is no public object
+      if(!pubMap.has(privObj)) {
+        throw new Error('no public object available');
       }
 
-      // store privObj
-      privMap.set(pubObj, privObj);
-      return privObj;
+      // get pubObj from map
+      return pubMap.get(privObj);
     }
-
-    // get privObj from map
-    return privMap.get(pubObj);
   };
 };

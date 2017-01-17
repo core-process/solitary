@@ -1,6 +1,6 @@
 {
   "name": "solitary",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Isolates private implementations from classes",
   "main": "build/module.js",
   "scripts": {

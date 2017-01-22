@@ -27,8 +27,8 @@ The module provides a single function as default export. Here is the signature:
 ```js
 import solitary from 'solitary';
 solitary(Class<PrivateClass>)
-  => { pub:  PrivateClass => PublicClass,
-       priv: PublicClass  => PrivateClass
+  => { pvt: PublicClass  => PrivateClass,
+       pub: PrivateClass => PublicClass
      }
 ```
 
@@ -41,7 +41,7 @@ import solitary from 'solitary';
 import bindthis from 'bindthis';
 import React from 'react';
 
-const { priv, pub } = solitary(
+const { pvt, pub } = solitary(
   // truly private stuff
   @bindthis
   class {
@@ -64,15 +64,15 @@ const { priv, pub } = solitary(
 
 export default class ExampleComponent extends React.Component {
   componentDidMount() {
-    window.addEventListener('scroll', priv(this).onScroll);
+    window.addEventListener('scroll', pvt(this).onScroll);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('scroll', priv(this).onScroll);
+    window.removeEventListener('scroll', pvt(this).onScroll);
   }
 
   render() {
-    return (<div ref={priv(this).setRoot}>...</div>);
+    return (<div ref={pvt(this).setRoot}>...</div>);
   }
 };
 ```

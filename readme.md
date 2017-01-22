@@ -25,8 +25,8 @@ The module provides a single function as default export. Here is the signature:
 ```js
 import solitary from 'solitary';
 solitary(Class<PrivateClass>)
-  => { pub: PrivateClass => PublicClass,
-       priv: PublicClass => PrivateClass
+  => { pub:  PrivateClass => PublicClass,
+       priv: PublicClass  => PrivateClass
      }
 ```
 

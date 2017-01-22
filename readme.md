@@ -2,7 +2,7 @@
 
 Isolates private implementations within classes.
 
-![npm downloads total](https://img.shields.io/npm/dt/solitary.svg) ![npm downloads per month](https://img.shields.io/npm/dm/solitary.svg) ![npm version](https://img.shields.io/npm/v/solitary.svg) ![npm license](https://img.shields.io/npm/l/solitary.svg)
+![npm downloads total](https://img.shields.io/npm/dt/solitary.svg) ![npm version](https://img.shields.io/npm/v/solitary.svg) ![npm license](https://img.shields.io/npm/l/solitary.svg)
 
 Ever wanted a genuinely private scope within your classes, e.g. to protect methods from being called by derived classes accidentally? This small library offers a convenient approach to isolate private implementations within classes.
 

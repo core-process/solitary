@@ -1,7 +1,7 @@
 {
   "name": "solitary",
   "version": "1.0.7",
-  "description": "Isolates private implementations from classes",
+  "description": "Isolates private implementations within classes.",
   "main": "build/module.js",
   "scripts": {
     "build": "babel src --out-dir build --source-maps --copy-files",

@@ -20,12 +20,14 @@ yarn add solitary
 
 ## Usage
 
-The module provides a single function provided as default export. This is the signature:
+The module provides a single function as default export. Here is the signature:
 
 ```js
 import solitary from 'solitary';
-solitary(privClass: Class<PrivClassT>)
-  : { pub: (PrivClassT) => PubClassT, priv: (PubClassT) => PrivClassT  }
+solitary(Class<PrivateClass>)
+  => { pub: PrivateClass => PublicClass,
+       priv: PublicClass => PrivateClass
+     }
 ```
 
 ### Example

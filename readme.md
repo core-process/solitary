@@ -34,7 +34,7 @@ solitary(Class<PrivateClass>)
 
 ### Example
 
-An example is worth a thousand words. This illustration promotes the decorator library [bindthis](https://github.com/core-process/bindthis) too. Of course, you could use `solitary` without it.
+An example is worth a thousand words. This illustration promotes the decorator library [bindthis](https://github.com/coreprocess/bindthis) too. Of course, you could use `solitary` without it.
 
 ```js
 import solitary from 'solitary';

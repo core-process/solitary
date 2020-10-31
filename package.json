@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/core-process/solitary.git"
+    "url": "git+https://github.com/coreprocess/solitary.git"
   },
   "author": "Niklas Salmoukas <niklas@salmoukas.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/core-process/solitary/issues"
+    "url": "https://github.com/coreprocess/solitary/issues"
   },
-  "homepage": "https://github.com/core-process/solitary#readme",
+  "homepage": "https://github.com/coreprocess/solitary#readme",
   "devDependencies": {
     "babel-cli": "^6.11.4",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
